@@ -1,17 +1,19 @@
 {
-  "name": "testapp",
+  "name": "my1-pa-watchface",
   "version": "1.0.0",
   "private": true,
   "fitbit": {
-    "appUUID": "2bcb9c0f-493b-4ec5-9fe0-07039a28ffa1",
-    "appType": "app",
-    "appDisplayName": "Test App",
+    "appUUID": "8d5002f9-4eea-47d7-99f1-0278b944c667",
+    "appType": "clockface",
+    "appDisplayName": "Poweramp Watchface",
     "iconFile": "resources/icon.png",
     "wipeColor": "#8bc34a",
-    "requestedPermissions": [],
+    "requestedPermissions": [
+      "access_internet",
+      "run_background"
+    ],
     "buildTargets": [
-      "hera",
-      "rhea"
+      "hera"
     ],
     "i18n": {},
     "defaultLanguage": "en-US",
@@ -25,5 +27,8 @@
     "@fitbit/sdk": "~7.1.0-pre.0",
     "@fitbit/sdk-cli": "~1.8.0-pre.10",
     "@fitbit/sdk-build-targets": "cmengler/fitbit-sdk-build-targets"
+  },
+  "dependencies": {
+    "yarn": "^1.22.21"
   }
 }

@@ -1,3 +1,31 @@
 <svg class="background">
-  <text id="demotext" x="50%" y="50%+15">Hello World!</text>
+  <text id="time" class="texts" x="40" y="60">--:--</text>
+
+
+  <textarea id="title" class="texts" x="25" y="50%-80" width="100%-50" height="60">Title</textarea>
+  <text id="artist" class="texts" x="50%" y="70%-50">Artist</text>
+  <text id="album" class="texts" x="50%" y="70%-20">Album</text>
+
+  <rect x="0" y="100%-100" width="100" height="100" class="thembuttons" id="prevbutton" pointer-events="visible">
+    <image href="icons/Back.png" load="sync" x="0" y="100%-100" width="100" height="100"  />
+  </rect>
+  <rect x="50%-68" y="100%-100" width="136" height="100" class="thembuttons" id="playbutton" pointer-events="visible">
+    <image id="playimage" href="icons/Play.png" load="sync" x="50%-68" y="100%-100" width="136" height="100" />
+  </rect>
+  <rect x="100%-100"  y="100%-100" width="100" height="100" class="thembuttons" id="nextbutton" pointer-events="visible">
+    <image href="icons/Forward.png" load="sync" width="100" height="100" x="100%-100" y="100%-100" />
+  </rect>
+
+  <arc x="100%-103" y="17" width="56" height="56" fill="#888888"
+    arc-width="4" start-angle="195" sweep-angle="240" />
+  <arc x="100%-103" y="17" width="56" height="56" fill="white"
+    arc-width="4" start-angle="195" sweep-angle="200" id="battinner" />
+
+
+  <arc x="100%-110" y="10" width="70" height="70" fill="#888888"
+    arc-width="4" start-angle="100" sweep-angle="270" />
+  <arc x="100%-110" y="10" width="70" height="70" fill="#00a0ff"
+    arc-width="4" start-angle="100" sweep-angle="200" id="battouter" />
+
+  <text id="batterypercent" class="texts" x="100%-75" y="52">%</text>
 </svg>

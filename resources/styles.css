@@ -1,12 +1,29 @@
 .background {
-  viewport-fill: fb-cyan;
+  viewport-fill: black;
 }
 
-#demotext {
-  fill: black;
-  font-size: 32;
+.texts {
+  fill: white;
+  font-size: 22;
   font-family: System-Regular;
   font-weight: bold;
   text-anchor: middle;
-  text-length: 99;
+  text-length: 30;
+  text-overflow: ellipsis;
+}
+
+#time {
+  font-size:60;
+  text-anchor:start;
+}
+
+
+#title {
+  font-size: 30;
+  text-length: 60;
+  line-increment: 33;
+}
+
+#battery {
+  font-size:10;
 }
