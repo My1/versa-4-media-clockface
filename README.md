@@ -1,20 +1,67 @@
-# Fitbit Versa 4 App
+# Fitbit Versa 4 Media Control Application
 
-This is an unofficial approach for building and sideloading a 3rd-party application to Fitbit Versa 4 and Sense 2 devices.
+Considering Fitbit REALLY lobotomized the Versa 4, as it can't do anything aside from fitness tracking and some smaller side things, I took things into my own hands and just wrote something myself
+
+(I'll likely still return the damn thing)
+
+## Features
+
+- Control Music from the comfort of your wrist (Play/Pause, Previous Track, Next Track)
+  - Support for Pinpoint controlling specific players, rather than the Standard Media buttons arriving at the first player they find
+  - Multi-Player support: Switch using the Battery Icon (current Player is indicated by the letter next to it)
+  - Currently available Players: Poweramp (Using Intent API), Apple Music (using generic Media APIs provided by Tasker with Package filter)
+  - big control buttons alinged around the lower edge for easy access even if you cannot see overly well
+  - haptic feedback on the control buttons for feedback
+  - View what's currently playing (Title, Artist, Album)
+    - Including Unicode and stuff (See Screenshot below)
+- Protect your Tasker API using a key attached to the requests
+- By using the Package filter in Tasker the Package targeted by the Apple Music Tasks can be easily modified
+- Still enough space for a big Digital Clock
+- Big and handy battery icon with percentage and neat colors (traced from "honeycomb" style Battery Icon often seen in Custom Roms) using fitbit's SVG-like design language.
+
+## Credits and Thanks
+
+- [Christian Mengler (cmengler)](https://github.com/cmengler)
+  - https://github.com/cmengler/fitbit-app-versa4 (Sample App for Versa 4 that served as the fork base and introduced me into some basics)
+  - https://github.com/cmengler/fitbit-spotify-hr-versa4 (This game me the initial idea to just go "screw it gotta do it myself" and really learned a whole lot on the UI coding from it)
+- [TimeToogo](https://github.com/TimeToogo)
+  - https://github.com/TimeToogo/spotify-hr the original Spotify Heart rate player that cmengler forked to the Versa 4 (also I stole the messagebroker from there, with permission)
+- [Peter McLennan also known as Gondwana/gondwanasoft](https://github.com/gondwanasoft)
+  - https://github.com/gondwanasoft/fitbit-big-time (a simple settings application to learn from)
+  - https://github.com/gondwanasoft/fitbit-file-saver (fetch and File Transfers)
+  - his frankly outstanding support on Discord
+- [Guy_ from the Fitbit Community](https://community.fitbit.com/t5/user/viewprofilepage/user-id/13486706)
+  - awesome help and support in the forum
+- Font Awesome for the awesome icons
+- Fitbit (despite all the issues)
+  - for at least providing a semi-decent dev Platform that is not crazy restrictive,
+  - language selection that despite using a super old standard is generally workable if you have experience with JS, SVG and CSS and feels a good bit easier to work than e.g. making an Android App,
+  - like the time to first Proof of Concept (basically a single button that does the request to the compaion, the companion to tasker, tasker to player) with no prior fitbit exprience was 2 and a half hours [Gondwana said that would have taken him weeks](https://discord.com/channels/355793206182412290/355793206635659264/1176638728689680474)
+- Tasker for the 6.2 Featrure of Webhooks
+
+# Notes for use:
+
+1) Before building your own copy, make yourself a UUID for the package and change any identifiers to your liking to avoid possible collisions
+2) if you intend to sideload via the debug tool, make the `appType` into `app` instead of `clockface` because if you sideload a clockface you can easily put yourself into an annoying state regarding clockfaces you need to reset your watch to get out of.
+3) if you want to make it as a clockface, test as app first and then make yourself a private app on GAM.
+4) Access to the Developer Features on the Watch needs a fitbit developer account, which is as easy as having a normal Fitbit Account (including through Google) and accepting the Platform terms at [the GAM](https://gam.fitbit.com/), you will be required to log in when using the Fitbit command line tool
+5) Publishing a Fitbit app (including "limited distribution", aka a private app only people with a link can access), requires accepting their Pulishing terms, which can equally be done at the GAM
+6) The fitbit app is prone to disabling the developer connection from time to time, just turn it on again if needed
+7) if the phone or watch disconnect (which can happen easily enough) just use `connect phone` and `connect device` to reconnect.
+8) if you are on Linux, add the udev rule `SUBSYSTEM=="usb", TAG+="uaccess", TAG+="udev-acl", ATTRS{idVendor}=="2687", ATTRS{idProduct}=="fd13"` (if you use a different watch, the identifiers may vary)
+9) To use Webhooks with Tasker you need Version 6.2 which is in Beta last time I checked.
 
 🚧 All content within this repository is provided for educational purposes only. Use at your own risk. 🚧
 
-This approach consists of:
-
-- Enables the `hosts` command via the `FITBIT_QA_COMMANDS` environment flag.
-- Uses unofficial drop-in package for [@fitbit/sdk-build-targets](https://github.com/cmengler/fitbit-sdk-build-targets)
-- Sets the `enableProposedAPI` for installs.
 
 ## Screenshots
 
 | App List                                | App                           |
 |-----------------------------------------|-------------------------------|
 | ![app list](./screenshots/app_list.png) | ![app](./screenshots/app.png) |
+
+
+The following has been taken from the Readme of the Versa 4 Sample App.
 
 ## Quick Start
 
@@ -25,7 +72,7 @@ To summarise in four steps:
 - [Connect the devices](#connect-the-devices)
 - [Install the app](#install-the-app)
 
-### Build the app
+### Building
 
 ```sh
 cd app && \

@@ -95,7 +95,7 @@ class MessageBroker {
     if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
       messaging.peerSocket.send(data);
     } else if ((messaging.peerSocket.readyState === messaging.peerSocket.CLOSED)) {
-      console.log(`${this.name} Could not set data: Messaging is closed.`);
+      console.log(`${this.name} Could not send data: Messaging is closed.`);
       this.pushToQueue(data);
     }
     else {

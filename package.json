@@ -1,11 +1,16 @@
 {
-  "name": "my1-pa-watchface",
-  "version": "1.0.0",
+  "name": "media-control-watchface",
+  "version": "2.5.1",
   "private": true,
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@fitbit/sdk": "~6.2.0-pre.1",
+    "@fitbit/sdk-cli": "~1.8.0-pre.10"
+  },
   "fitbit": {
-    "appUUID": "8d5002f9-4eea-47d7-99f1-0278b944c667",
-    "appType": "clockface",
-    "appDisplayName": "Poweramp Watchface",
+    "appUUID": "00000000-0000-0000-0000-000000000000",
+    "appType": "app",
+    "appDisplayName": "Media Control Clock",
     "iconFile": "resources/icon.png",
     "wipeColor": "#8bc34a",
     "requestedPermissions": [
@@ -16,19 +21,10 @@
       "hera"
     ],
     "i18n": {},
-    "defaultLanguage": "en-US",
-    "enableProposedAPI": true
+    "defaultLanguage": "en-US"
   },
   "scripts": {
     "build": "fitbit-build",
     "debug": "fitbit"
-  },
-  "devDependencies": {
-    "@fitbit/sdk": "~7.1.0-pre.0",
-    "@fitbit/sdk-cli": "~1.8.0-pre.10",
-    "@fitbit/sdk-build-targets": "cmengler/fitbit-sdk-build-targets"
-  },
-  "dependencies": {
-    "yarn": "^1.22.21"
   }
 }
